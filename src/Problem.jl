@@ -43,8 +43,26 @@ function generate_problem_dictionary()
 	flux_bounds_array = zeros(number_of_reactions,2)
 	# TODO: update the flux_bounds_array for each reaction in your network
 	# TODO: col 1 => lower bound
+	for i = 7:length(flux_bounds_array)
+		flux_bounds_array[i,1] = 0
+	end
 	# TODO: col 2 => upper bound
+	for i = 7:length(flux_bounds_array)
+		flux_bounds_array[i,2] = 0.001
+	end
 	# TODO: each row is a reaction
+	E = 0.1E-6
+	vmax_list = [203,34.5,249,88.1,13.7].*E
+
+	for vmax in vmax_list, i = 1:length(vmax_list)
+		flux_bounds_array[i,1] = 0
+		flux_bounds_array[i,2] = vmax
+		if i == 5
+			flux_bounds_array[i+1,1] = 0
+			flux_bounds_array[i+1,2] = vmax
+		end
+	end
+
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)
@@ -58,7 +76,7 @@ function generate_problem_dictionary()
 	objective_coefficient_array = zeros(number_of_reactions)
 	# TODO: update me to maximize Urea production (Urea leaving the virtual box) 
 	# TODO: if is_minimum_flag = true => put a -1 in the index for Urea export
-	
+	objective_coefficient_array[10] = -1 
 	
 	# =============================== DO NOT EDIT BELOW THIS LINE ============================== #
 	data_dictionary = Dict{String,Any}()
