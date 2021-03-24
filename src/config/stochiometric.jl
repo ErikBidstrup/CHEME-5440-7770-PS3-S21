@@ -66,28 +66,6 @@ d_rxn = convert(Matrix, d[1:end-1,2:end])
 # ╔═╡ 01f07c10-8cbc-11eb-30d7-4d4a4f9b5f38
 elementcheckmatrix = d_rxn*s_rxn
 
-# ╔═╡ 320b5ce0-8cca-11eb-3114-b720968e1f69
-(number_of_species,number_of_reactions) = size(s)
-
-# ╔═╡ 38d1ad40-8cca-11eb-2a57-49fcb30fef66
-flux_bounds_array = zeros(number_of_reactions,2)
-
-# ╔═╡ 31b107e0-8cca-11eb-00d9-71a89a9fe579
-# TODO: update the flux_bounds_array for each reaction in your network
-	# TODO: col 1 => lower bound
-	for i = 7:number_of_reactions
-		flux_bounds_array[i,1] = 0
-	end
-
-# ╔═╡ 9f2e34a0-8cca-11eb-2e74-8be8540ab6e4
-# # TODO: col 2 => upper bound
-	for i = 7:number_of_reactions
-	 	flux_bounds_array[i,2] = 0.001
-	end
-
-# ╔═╡ 45013990-8ccb-11eb-1588-1d306cfaf616
-flux_bounds_array
-
 # ╔═╡ Cell order:
 # ╠═f7b7af70-8b35-11eb-0f84-0f9081e07bd0
 # ╠═9720d140-8bf9-11eb-3391-7da0608d03d5
@@ -97,8 +75,3 @@ flux_bounds_array
 # ╠═04f6d650-8c50-11eb-2209-1b64eefbb63b
 # ╠═8ad9457e-8cbb-11eb-3748-bfdfeab03d9a
 # ╠═01f07c10-8cbc-11eb-30d7-4d4a4f9b5f38
-# ╠═320b5ce0-8cca-11eb-3114-b720968e1f69
-# ╠═38d1ad40-8cca-11eb-2a57-49fcb30fef66
-# ╠═31b107e0-8cca-11eb-00d9-71a89a9fe579
-# ╠═9f2e34a0-8cca-11eb-2e74-8be8540ab6e4
-# ╠═45013990-8ccb-11eb-1588-1d306cfaf616
