@@ -13,4 +13,4 @@ end
 
 # execute main -
 results = main()
-println("Urea Export (mmol/(gDW*hr)) = ",results[1])
+println("Urea Export (mmol/(gDW*hr)) = ",results[1]*-1)
