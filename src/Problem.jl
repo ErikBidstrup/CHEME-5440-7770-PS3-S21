@@ -53,16 +53,12 @@ function generate_problem_dictionary()
 	# TODO: each row is a reaction
 	E = 0.1E-6
 	vmax_list = [203,34.5,249,88.1,13.7].*E
-
-	for vmax in vmax_list, i = 1:length(vmax_list)
-		flux_bounds_array[i,1] = 0
-		flux_bounds_array[i,2] = vmax
-		if i == 5
-			flux_bounds_array[i+1,1] = 0
-			flux_bounds_array[i+1,2] = vmax
-		end
-	end
-
+	flux_bounds_array[1,2] = vmax_list[1]
+	flux_bounds_array[2,2] = vmax_list[2]
+	flux_bounds_array[3,2] = vmax_list[3]
+	flux_bounds_array[4,2] = vmax_list[4]
+	flux_bounds_array[5,2] = vmax_list[5]
+	flux_bounds_array[6,2] = vmax_list[5]
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)
