@@ -43,16 +43,18 @@ function generate_problem_dictionary()
 	flux_bounds_array = zeros(number_of_reactions,2)
 	# TODO: update the flux_bounds_array for each reaction in your network
 	# TODO: col 1 => lower bound
-	for i = 7:length(flux_bounds_array)
+	for i = 7:number_of_reactions
 		flux_bounds_array[i,1] = 0
 	end
 	# TODO: col 2 => upper bound
-	for i = 7:length(flux_bounds_array)
+	for i = 7:number_of_reactions
 		flux_bounds_array[i,2] = 0.001
 	end
 	# TODO: each row is a reaction
 	E = 0.1E-6
+	
 	vmax_list = [203,34.5,249,88.1,13.7].*E
+
 	flux_bounds_array[1,2] = vmax_list[1]
 	flux_bounds_array[2,2] = vmax_list[2]
 	flux_bounds_array[3,2] = vmax_list[3]
