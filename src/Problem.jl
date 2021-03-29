@@ -48,10 +48,10 @@ function generate_problem_dictionary()
 	end
 	# TODO: col 2 => upper bound
 	for i = 7:number_of_reactions
-		flux_bounds_array[i,2] = 0.001 # mmol/(gDW*hr)
+		flux_bounds_array[i,2] = 10 # mmol/(gDW*hr)
 	end
 	# TODO: each row is a reaction
-	E = (0.01E-6)*(1/1000) # umol/gDW * mmol/umol [=] mmol/gDW
+	E = (0.01/1000) # umol/gDW * mmol/umol [=] mmol/gDW
 
 	vmax_list = [203,34.5,249,88.1,13.7].*E.*3600 # 1/s * mmol/gDW * s/hr [=] mmol/(gDW*hr)
 
